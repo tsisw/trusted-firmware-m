@@ -16,7 +16,7 @@
 
 /**
  * \file platform_base_address.h
- * \brief This file defines all the peripheral base addresses for Corstone-310.
+ * \brief This file defines all the peripheral base addresses for TSI.
  */
 
 #ifndef __PLATFORM_BASE_ADDRESS_H__
@@ -34,13 +34,13 @@
 #define ISRAM1_BASE_NS                   0x21200000 /* Internal SRAM Area Non-Secure base address */
 #define QSPI_SRAM_BASE_NS                0x28000000 /* QSPI SRAM Non-Secure base address */
 /* Non-Secure Subsystem peripheral region */
-#if defined(CORSTONE310_FVP) || defined(CORSTONE310_TSI_FVP)
+#ifdef TSI_FVP
 #define DMA_350_BASE_NS                  0x40002000 /* DMA350 register block Non-Secure base address */
 #endif
 #define NPU0_APB_BASE_NS                 0x40004000 /* NPU0 APB Non-Secure base address */
 #define CPU0_PWRCTRL_BASE_NS             0x40012000 /* CPU 0 Power Control Block Non-Secure base address */
 #define CPU0_IDENTITY_BASE_NS            0x4001F000 /* CPU 0 Identity Block Non-Secure base address */
-#define CORSTONE310_NSACFG_BASE_NS       0x40080000 /* Corstone-310 Non-Secure Access Configuration Register Block Non-Secure base address */
+#define TSI_NSACFG_BASE_NS       0x40080000 /* TSI Non-Secure Access Configuration Register Block Non-Secure base address */
 /* Non-Secure MSTEXPPILL Peripheral region */
 #define GPIO0_CMSDK_BASE_NS              0x41100000 /* GPIO 0 Non-Secure base address */
 #define GPIO1_CMSDK_BASE_NS              0x41101000 /* GPIO 1 Non-Secure base address */
@@ -50,12 +50,6 @@
 #define AHB_USER_1_BASE_NS               0x41105000 /* AHB USER 1 Non-Secure base address */
 #define AHB_USER_2_BASE_NS               0x41106000 /* AHB USER 2 Non-Secure base address */
 #define AHB_USER_3_BASE_NS               0x41107000 /* AHB USER 3 Non-Secure base address */
-#ifdef CORSTONE310_AN555
-#define DMA_0_BASE_NS                    0x41200000 /* DMA0 Non-Secure base address */
-#define DMA_1_BASE_NS                    0x41201000 /* DMA1 Non-Secure base address */
-#define DMA_2_BASE_NS                    0x41202000 /* DMA2 Non-Secure base address */
-#define DMA_3_BASE_NS                    0x41203000 /* DMA3 Non-Secure base address */
-#endif
 #define ETHERNET_BASE_NS                 0x41400000 /* Ethernet Non-Secure base address */
 #define USB_BASE_NS                      0x41500000 /* USB Non-Secure base address */
 #define USER_APB0_BASE_NS                0x41700000 /* User APB 0 Non-Secure base address */
@@ -69,7 +63,7 @@
 #define SYSTIMER1_ARMV8_M_BASE_NS        0x48001000 /* System Timer 1 Non-Secure base address */
 #define SYSTIMER2_ARMV8_M_BASE_NS        0x48002000 /* System Timer 2 Non-Secure base address */
 #define SYSTIMER3_ARMV8_M_BASE_NS        0x48003000 /* System Timer 3 Non-Secure base address */
-#define CORSTONE310_SYSINFO_BASE_NS      0x48020000 /* Corstone-310 System info Block Non-Secure base address */
+#define TSI_SYSINFO_BASE_NS      0x48020000 /* TSI System info Block Non-Secure base address */
 #define SLOWCLK_TIMER_CMSDK_BASE_NS      0x4802F000 /* CMSDK based SLOWCLK Timer Non-Secure base address */
 #define SYSWDOG_ARMV8_M_CNTRL_BASE_NS    0x48040000 /* Non-Secure Watchdog Timer control frame Non-Secure base address */
 #define SYSWDOG_ARMV8_M_REFRESH_BASE_NS  0x48041000 /* Non-Secure Watchdog Timer refresh frame Non-Secure base address */
@@ -96,7 +90,7 @@
 #define CLCD_Config_Reg_BASE_NS          0x4930A000 /* CLCD Config Reg Non-Secure base address */
 #define RTC_BASE_NS                      0x4930B000 /* RTC Non-Secure base address */
 
-#ifdef CORSTONE310_FVP
+#ifdef TSI_FVP
 #define VSOCKET_BASE_NS                  0x4FEE0000 /*!< VSOCKET Non-Secure base address */
 #define VIO_BASE_NS                      0x4FEF0000 /*!< VIO Non-Secure base address */
 #define VSI0_BASE_NS                     0x4FF00000 /*!< VSI 0 Non-Secure base address */
@@ -125,14 +119,14 @@
 #define ISRAM1_BASE_S                    0x31200000 /* Internal SRAM Area Secure base address */
 #define QSPI_SRAM_BASE_S                 0x38000000 /* QSPI SRAM Secure base address */
 /* Secure Subsystem peripheral region */
-#if defined(CORSTONE310_FVP) || defined(CORSTONE310_TSI_FVP)
+#ifdef TSI_FVP
 #define DMA_350_BASE_S                   0x50002000 /* DMA350 register block Secure base address */
 #endif
 #define NPU0_APB_BASE_S                  0x50004000 /* NPU0 APB Secure base address */
 #define CPU0_SECCTRL_BASE_S              0x50011000 /* CPU 0 Local Security Control Block Secure base address */
 #define CPU0_PWRCTRL_BASE_S              0x50012000 /* CPU 0 Power Control Block Secure base address */
 #define CPU0_IDENTITY_BASE_S             0x5001F000 /* CPU 0 Identity Block Secure base address */
-#define CORSTONE310_SACFG_BASE_S         0x50080000 /* Corstone-310 Secure Access Configuration Register Secure base address */
+#define TSI_SACFG_BASE_S         0x50080000 /* TSI Secure Access Configuration Register Secure base address */
 #define MPC_ISRAM0_BASE_S                0x50083000 /* Internal SRAM0 Memory Protection Controller Secure base address */
 #define MPC_ISRAM1_BASE_S                0x50084000 /* Internal SRAM1 Memory Protection Controller Secure base address */
 /* Secure MSTEXPPILL Peripheral region */
@@ -144,12 +138,6 @@
 #define AHB_USER_1_BASE_S                0x51105000 /* AHB USER 1 Secure base address */
 #define AHB_USER_2_BASE_S                0x51106000 /* AHB USER 2 Secure base address */
 #define AHB_USER_3_BASE_S                0x51107000 /* AHB USER 3 Secure base address */
-#ifdef CORSTONE310_AN555
-#define DMA_0_BASE_S                     0x51200000  /* DMA0 Secure base address */
-#define DMA_1_BASE_S                     0x51201000  /* DMA1 Secure base address */
-#define DMA_2_BASE_S                     0x51202000  /* DMA2 Secure base address */
-#define DMA_3_BASE_S                     0x51203000  /* DMA3 Secure base address */
-#endif
 #define ETHERNET_BASE_S                  0x51400000 /* Ethernet Secure base address */
 #define USB_BASE_S                       0x51500000 /* USB Secure base address */
 #define USER_APB0_BASE_S                 0x51700000 /* User APB 0 Secure base address */
@@ -166,13 +154,13 @@
 #define SYSTIMER1_ARMV8_M_BASE_S         0x58001000 /* System Timer 1 Secure base address */
 #define SYSTIMER2_ARMV8_M_BASE_S         0x58002000 /* System Timer 0 Secure base address */
 #define SYSTIMER3_ARMV8_M_BASE_S         0x58003000 /* System Timer 1 Secure base address */
-#define CORSTONE310_SYSINFO_BASE_S       0x58020000 /* Corstone-310 System info Block Secure base address */
-#define CORSTONE310_SYSCTRL_BASE_S       0x58021000 /* Corstone-310 System control Block Secure base address */
-#define CORSTONE310_SYSPPU_BASE_S        0x58022000 /* Corstone-310 System Power Policy Unit Secure base address */
-#define CORSTONE310_CPU0PPU_BASE_S       0x58023000 /* Corstone-310 CPU 0 Power Policy Unit Secure base address */
-#define CORSTONE310_MGMTPPU_BASE_S       0x58028000 /* Corstone-310 Management Power Policy Unit Secure base address */
-#define CORSTONE310_DBGPPU_BASE_S        0x58029000 /* Corstone-310 Debug Power Policy Unit Secure base address */
-#define CORSTONE310_NPU0PPU_BASE_S       0x5802A000 /* Corstone-310 NPU 0 Power Policy Unit Secure base address */
+#define TSI_SYSINFO_BASE_S       0x58020000 /* TSI System info Block Secure base address */
+#define TSI_SYSCTRL_BASE_S       0x58021000 /* TSI System control Block Secure base address */
+#define TSI_SYSPPU_BASE_S        0x58022000 /* TSI System Power Policy Unit Secure base address */
+#define TSI_CPU0PPU_BASE_S       0x58023000 /* TSI CPU 0 Power Policy Unit Secure base address */
+#define TSI_MGMTPPU_BASE_S       0x58028000 /* TSI Management Power Policy Unit Secure base address */
+#define TSI_DBGPPU_BASE_S        0x58029000 /* TSI Debug Power Policy Unit Secure base address */
+#define TSI_NPU0PPU_BASE_S       0x5802A000 /* TSI NPU 0 Power Policy Unit Secure base address */
 #define SLOWCLK_WDOG_CMSDK_BASE_S        0x5802E000 /* CMSDK based SLOWCLK Watchdog Secure base address */
 #define SLOWCLK_TIMER_CMSDK_BASE_S       0x5802F000 /* CMSDK based SLOWCLK Timer Secure base address */
 #define SYSWDOG_ARMV8_M_CNTRL_BASE_S     0x58040000 /* Secure Watchdog Timer control frame Secure base address */
@@ -201,7 +189,7 @@
 #define CLCD_Config_Reg_BASE_S           0x5930A000 /* CLCD Config Reg Secure base address */
 #define RTC_BASE_S                       0x5930B000 /* RTC Secure base address */
 
-#ifdef CORSTONE310_FVP
+#ifdef TSI_FVP
 #define VSOCKET_BASE_S                   0x5FEE0000 /*!< VSOCKET Secure base address */
 #define VIO_BASE_S                       0x5FEF0000 /*!< VIO Secure base address */
 #define VSI0_BASE_S                      0x5FF00000 /*!< VSI 0 Secure base address */
@@ -228,7 +216,7 @@
 #define DTGU_LUTn_BASE                   0xE001E610 /* TGU Look Up Table  register for DTCM */
 
 /* Memory map addresses exempt from memory attribution by both the SAU and IDAU */
-#define CORSTONE310_EWIC_BASE            0xE0047000 /* External Wakeup Interrupt Controller
+#define TSI_EWIC_BASE            0xE0047000 /* External Wakeup Interrupt Controller
                                                      * Access from Non-secure software is only allowed
                                                      * if AIRCR.BFHFNMINS is set to 1 */
 

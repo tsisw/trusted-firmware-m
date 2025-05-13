@@ -1,0 +1,14 @@
+#-------------------------------------------------------------------------------
+# Copyright (c) 2022-2023, Arm Limited. All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+#-------------------------------------------------------------------------------
+
+add_definitions(
+	-DTSI_FVP
+)
+
+set(TSI_COMMON_DIR "${CMAKE_CURRENT_LIST_DIR}/common")
+
+include(${TSI_COMMON_DIR}/cpuarch.cmake)
