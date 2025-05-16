@@ -37,18 +37,18 @@ extern struct uart_cmsdk_dev_t UART0_CMSDK_DEV_NS;
 
 /* ARM PPC driver structures */
 
-#include "ppc_corstone310_drv.h"
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_MAIN0_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_MAIN_EXP0_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_MAIN_EXP1_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_MAIN_EXP2_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_MAIN_EXP3_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_PERIPH0_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_PERIPH1_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_PERIPH_EXP0_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_PERIPH_EXP1_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_PERIPH_EXP2_DEV_S;
-extern struct ppc_corstone310_dev_t PPC_CORSTONE310_PERIPH_EXP3_DEV_S;
+#include "ppc_tsi_drv.h"
+extern struct ppc_tsi_dev_t PPC_TSI_MAIN0_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_MAIN_EXP0_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_MAIN_EXP1_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_MAIN_EXP2_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_MAIN_EXP3_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_PERIPH0_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_PERIPH1_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_PERIPH_EXP0_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_PERIPH_EXP1_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_PERIPH_EXP2_DEV_S;
+extern struct ppc_tsi_dev_t PPC_TSI_PERIPH_EXP3_DEV_S;
 
 /* System counters */
 #include "syscounter_armv8-m_cntrl_drv.h"
@@ -68,7 +68,7 @@ extern struct mpc_sie_dev_t MPC_ISRAM0_DEV_S;
 extern struct mpc_sie_dev_t MPC_ISRAM1_DEV_S;
 extern struct mpc_sie_dev_t MPC_DDR4_DEV_S;
 
-#if defined(CORSTONE310_FVP) || defined(CORSTONE310_TSI_FVP)
+#ifdef TSI_FVP
 /* DMA350 driver structures */
 #include "dma350_drv.h"
 extern struct dma350_dev_t DMA350_DMA0_DEV_S;
@@ -86,7 +86,7 @@ extern struct dma350_ch_dev_t DMA350_DMA0_CH1_DEV_S;
 #include "dma350_lib.h"
 extern const struct dma350_remap_list_t dma350_address_remap;
 #endif /* PLATFORM_SVC_HANDLERS */
-#endif /* CORSTONE310_FVP || CORSTONE310_TSI_FVP*/
+#endif /* TSI_FVP*/
 
 /* TGU driver structure */
 #include "tgu_armv8_m_drv.h"
